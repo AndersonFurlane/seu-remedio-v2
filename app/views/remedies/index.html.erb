@@ -1,0 +1,27 @@
+<h1>Listing migrations</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Remedy</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @migrations.each do |migration| %>
+      <tr>
+        <td><%= migration.remedy %></td>
+        <td><%= link_to 'Show', migration %></td>
+        <td><%= link_to 'Edit', edit_migration_path(migration) %></td>
+        <td><%= link_to 'Destroy', migration, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Migration', new_migration_path %>
