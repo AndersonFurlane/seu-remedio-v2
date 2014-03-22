@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-SeuRemedioV2::Application.config.secret_key_base = '1ad42cd552b583f23dd53b447d2cf6307ff47591b23572c05018fb46af4871fd739684f4f44d12dacc16457c55b35894157184c704bf75ac5c6b4c79a7002aab'
+SeuRemedioV2::Application.config.secret_key_base = '0a827be5af21ea540800d9820f7febbe63214e1ae6c5147398fb88a7ad90d141b885fd8f954a4259c05949d44298c55c42a41b4188f8d8c054aae72abce7caff'
