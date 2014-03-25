@@ -1,11 +1,14 @@
 !!!!
 %html
 %head
-  %title SeuRemedioV2
-  = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-  = javascript_include_tag 'application', 'data-turbolinks-track' => true
+  %title Seu Remédio - O seu lembrete de remédios
+  = stylesheet_link_tag :application, media: 'all', 'data-turbolinks-track' => true
+  = javascript_include_tag :application, 'data-turbolinks-track' => true
   = csrf_meta_tags
 
 %body
-
-= yield
+  #content
+    = render partial: 'layouts/header'
+    = yield
+    #layout_footer
+  = render partial: 'layouts/footer'

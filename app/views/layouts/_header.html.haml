@@ -1,0 +1,21 @@
+#header
+  = link_to '', root_path, class: 'logo'
+
+  .user_box
+    - if user_signed_in?
+      .sign_in
+        %h3= current_user.name
+        = link_to 'Sair', destroy_user_session_path, method: 'delete'
+
+    - else
+      .login
+        = form_for(@user, url: user_session_path) do |f|
+          %span= f.label :email
+          %span= f.email_field :email, autofocus: true
+
+          %span= f.label :password
+          %span= f.password_field :password, autocomplete: 'off'
+
+          %span= f.submit 'Login'
+
+      = link_to 'Cadastre-se', new_user_registration_path, class: 'register'

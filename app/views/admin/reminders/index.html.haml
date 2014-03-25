@@ -1,0 +1,9 @@
+= render partial: 'shared/subnav'
+
+#reminders
+
+  - if @reminders.present?
+    - @reminders.each do |reminder|
+      = reminder.name
+  - else
+    %h2 Você não possui lembretes cadastrado
