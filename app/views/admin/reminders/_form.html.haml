@@ -1,0 +1,45 @@
+%dt
+  = f.label :title, 'Titulo do lembrete:'
+  = f.text_field :title
+
+%dt
+  = f.label :remedy, 'Nome do remédio:'
+  = f.text_field :remedy
+
+%dt
+  = f.label :forever_remedy, 'Esse medicamento você tem que toma-lo sempre? (pelo o resto da sua vida ou um longo periodo)'
+  = f.radio_button :forever_remedy, true
+  = f.label :forever_remedy,'Sim'
+
+  = f.radio_button :forever_remedy, false
+  = f.label :forever_remedy, 'Não'
+.remedy
+  %dt
+  = f.label :start_at, 'Inicio da medicação:'
+  = f.date_select :start_at, order: [:day, :month, :year]
+
+  %dt
+    = f.label :range_days, 'Quantidade de dias que tera que tomar o medicamento:'
+    = f.text_field :range_days
+
+%dt
+  = f.label :dependent, 'Esse remedio e para você ou para alguem que você cuida?'
+  = f.radio_button :dependent, true
+  = f.label :dependent,'Sim'
+
+  = f.radio_button :dependent, false
+  = f.label :dependent, 'Não'
+.dependent
+  %dt
+    = f.label :dependent_name, 'Digite o nome do depentende:'
+    = f.text_field :dependent_name
+
+  %dt
+    = f.label :dependent_email, 'Digite o email do depentende:'
+    = f.email_field :dependent_email
+
+= submit_tag 'salvar'
+
+- content_for(:javascript) do
+  :javascript
+    new Reminder()

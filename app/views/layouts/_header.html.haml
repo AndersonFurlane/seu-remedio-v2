@@ -1,5 +1,5 @@
 #header
-  = link_to '', root_path, class: 'logo'
+  = link_to '', user_signed_in? ? admin_root_path : root_path, class: 'logo'
 
   .user_box
     - if user_signed_in?

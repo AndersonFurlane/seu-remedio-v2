@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :reminders, dependent: :destroy
+  has_many :remidies
 
   validates_presence_of :name, :email
   validates_uniqueness_of :email
-
 end

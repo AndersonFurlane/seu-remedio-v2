@@ -2,6 +2,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
       t.references :reminder
+      t.references :remedy
       t.string :name
       ## Database authenticatable
       t.string :email,              null: false, default: ""

@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 3) do
 
   create_table "remedies", force: true do |t|
     t.integer  "reminder_id"
+    t.integer  "user_id"
     t.string   "name"
     t.string   "description"
     t.datetime "created_at"
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(version: 3) do
 
   create_table "users", force: true do |t|
     t.integer  "reminder_id"
+    t.integer  "remedy_id"
     t.string   "name"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false

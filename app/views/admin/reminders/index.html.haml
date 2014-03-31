@@ -1,7 +1,7 @@
 = render partial: 'shared/subnav'
 
 #reminders
-
+  %h1 Lembretes:
   - if @reminders.present?
     - @reminders.each do |reminder|
       = reminder.name
