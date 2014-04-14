@@ -7,6 +7,7 @@ class CreateReminders < ActiveRecord::Migration
       t.string :title
       t.date :start_at
       t.date :end_at
+      t.time :time
       t.integer :range_days
       t.boolean :forever_remedy, default: false
       t.boolean :dependent, default: false

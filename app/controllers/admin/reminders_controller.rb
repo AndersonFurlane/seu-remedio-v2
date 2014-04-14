@@ -11,6 +11,7 @@ class Admin::RemindersController < Admin::AdminController
 
   def create
     @reminder = @user.reminders.new(reminder_params)
+    @reminder.end_at = set_end_at
 
     if @reminder.save
       redirect_to admin_root_path, notice: 'Lembrete criado!'
@@ -19,9 +20,38 @@ class Admin::RemindersController < Admin::AdminController
     end
   end
 
+  def edit
+    @reminder = @user.reminders.find(params[:id])
+  end
+
+  def update
+    @reminder = @user.reminders.find(params[:id])
+    @reminder.end_at = set_end_at
+
+    if @reminder.update(reminder_params)
+      redirect_to admin_root_path, notice: 'Lembrete alterado com sucesso!'
+    else
+      render action: :edit
+    end
+  end
+
+  def destroy
+    @reminder = @user.reminders.find(params[:id])
+
+    if @reminder.destroy
+      redirect_to admin_root_path, notice: 'Lembrete deletado com sucesso!'
+    else
+      render action: :edit
+    end
+  end
+
   private
   def set_user
     @user = current_user
+  end
+
+  def set_end_at
+    @reminder.start_at + @reminder.range_days
   end
 
   def reminder_params

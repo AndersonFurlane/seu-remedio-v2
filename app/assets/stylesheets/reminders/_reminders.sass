@@ -1,4 +1,45 @@
 #reminders
   min-width: 864px
   min-height: 480px
-  margin: 10px 100px
+  overflow: auto
+  margin: 10px 0
+  padding: 0 10px
+
+  h2
+    text-align: center
+  .reminder
+    font-family: 'Ruluko', sans-serif
+    color: #0000E0
+    background-color: #FFD700
+    text-align: center
+    float: left
+    margin: 5px 10px
+    height: 210px
+    padding: 5px
+    position: relative
+    .name, .reminder_data
+      border-width: 3px
+      border-style: dashed
+      border-color: #708090
+      padding: 10px
+    .name
+      font-family: 'Henny Penny', cursive
+      font-size: 18px
+    .reminder_data
+      margin-top: 10px
+      height: 115px
+      font-weight: bold
+      .date
+        margin: 5px
+      .dependent
+        margin-top: 5px
+      .actions
+        position: absolute
+        right: 20px
+        bottom: 25px
+        a
+          padding: 4px
+          color: #FFD700
+          background-color: #260026
+          &:hover
+            color: #FFFFFF

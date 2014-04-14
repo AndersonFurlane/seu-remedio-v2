@@ -1,10 +1,10 @@
 %dt
   = f.label :title, 'Titulo do lembrete:'
-  = f.text_field :title
+  = f.text_field :title, size: 40
 
 %dt
-  = f.label :remedy, 'Nome do remédio:'
-  = f.text_field :remedy
+  = f.label :remedy_name, 'Nome do remédio:'
+  = f.text_field :remedy_name, size: 40
 
 %dt
   = f.label :forever_remedy, 'Esse medicamento você tem que toma-lo sempre? (pelo o resto da sua vida ou um longo periodo)'
@@ -13,22 +13,28 @@
 
   = f.radio_button :forever_remedy, false
   = f.label :forever_remedy, 'Não'
+
+%dt
+  = f.label :time, 'Escolha a hora do remedio:'
+  = f.time_select :time, default: Time.now
+
 .remedy
   %dt
   = f.label :start_at, 'Inicio da medicação:'
-  = f.date_select :start_at, order: [:day, :month, :year]
+  = f.date_select :start_at, order: [:day, :month, :year], default: Date.today
 
   %dt
     = f.label :range_days, 'Quantidade de dias que tera que tomar o medicamento:'
     = f.text_field :range_days
 
 %dt
-  = f.label :dependent, 'Esse remedio e para você ou para alguem que você cuida?'
+  = f.label :dependent, 'Esse lembrete e para outra pessoa?'
   = f.radio_button :dependent, true
   = f.label :dependent,'Sim'
 
   = f.radio_button :dependent, false
   = f.label :dependent, 'Não'
+
 .dependent
   %dt
     = f.label :dependent_name, 'Digite o nome do depentende:'

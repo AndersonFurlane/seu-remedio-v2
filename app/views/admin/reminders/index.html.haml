@@ -1,9 +1,26 @@
 = render partial: 'shared/subnav'
 
 #reminders
-  %h1 Lembretes:
   - if @reminders.present?
     - @reminders.each do |reminder|
-      = reminder.name
+      .reminder
+        .name
+          = reminder.title
+
+        .reminder_data
+          = "Nome do remedio: #{ reminder.remedy.name }"
+
+          .date
+            = "Inicio: #{ reminder.start_at.strftime("%d/%m/%Y") } -"
+            = "Final: #{ reminder.end_at.strftime("%d/%m/%Y") }"
+
+          = "Horario: #{ reminder.time.strftime("%H:%M:%S") }"
+
+          - if reminder.dependent_name.present? && reminder.dependent
+            .dependent= "Dependente: #{ reminder.dependent_name } "
+
+          .actions
+            = link_to 'Editar', edit_admin_reminder_path(reminder.id)
+            = link_to 'Deletar', admin_reminder_path(reminder.id), method: :delete, data: { confirm: 'Tem certeza?' }
   - else
     %h2 Você não possui lembretes cadastrado

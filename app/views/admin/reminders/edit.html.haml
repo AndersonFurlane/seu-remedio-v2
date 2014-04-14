@@ -1,7 +1,7 @@
 = render partial: 'shared/subnav'
 
 #reminders
-  %span Cadastrar um lembrete:
+  %span Editar um lembrete:
 
-  = form_for @reminder, url: admin_reminders_path do |f|
+  = form_for @reminder, url: admin_reminder_path do |f|
     = render partial: 'form', locals: { f: f }

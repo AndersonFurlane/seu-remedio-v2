@@ -7,5 +7,6 @@ SeuRemedioV2::Application.routes.draw do
     root to: 'reminders#index'
     resources :reminders
     resources :users
+    get '/remedies/autocomplete/(:query)' =>  'remedies#autocomplete', as: :remedies_autocomplete, format: [:json, :js]
   end
 end

@@ -14,8 +14,6 @@
 ActiveRecord::Schema.define(version: 3) do
 
   create_table "remedies", force: true do |t|
-    t.integer  "reminder_id"
-    t.integer  "user_id"
     t.string   "name"
     t.string   "description"
     t.datetime "created_at"
@@ -31,6 +29,7 @@ ActiveRecord::Schema.define(version: 3) do
     t.string   "title"
     t.date     "start_at"
     t.date     "end_at"
+    t.time     "time"
     t.integer  "range_days"
     t.boolean  "forever_remedy",  default: false
     t.boolean  "dependent",       default: false
